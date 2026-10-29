@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#101827">
+<title>BACKFLIP QUEST｜バク宙への道</title>
+<style>
+:root{--bg:#0b1020;--panel:#151e30;--panel2:#1d2940;--text:#f3f6ff;--muted:#a9b5cc;--accent:#8bffbd;--accent2:#76c7ff;--warn:#ffd479;--danger:#ff8f9a;--line:#2c3a55}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#1a2943 0,#0b1020 58%);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55}button,input,select,textarea{font:inherit}button{border:0;border-radius:13px;padding:12px 15px;background:var(--accent);color:#102017;font-weight:800;cursor:pointer}button.secondary{background:var(--panel2);color:var(--text);border:1px solid var(--line)}button.danger{background:#512633;color:#ffe8eb;border:1px solid #844454}button:disabled{opacity:.4;cursor:not-allowed}.wrap{max-width:920px;margin:auto;padding:18px 14px 44px}.hero{padding:23px 20px;border:1px solid #34445f;border-radius:24px;background:linear-gradient(135deg,#1b2c43,#131a2a);box-shadow:0 18px 50px #0003}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:900;letter-spacing:.14em}.hero h1{font-size:clamp(1.8rem,7vw,3.1rem);line-height:1.08;margin:8px 0}.hero p{color:var(--muted);margin:10px 0 0}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:17px}.stat{background:#0e1728;border:1px solid var(--line);border-radius:15px;padding:12px}.stat strong{display:block;font-size:1.5rem}.stat span{font-size:.78rem;color:var(--muted)}.tabs{display:flex;gap:8px;overflow:auto;padding:15px 0}.tab{white-space:nowrap;background:var(--panel);border:1px solid var(--line);color:var(--muted)}.tab.active{background:var(--accent);color:#102017}.page{display:none}.page.active{display:block}.card{background:var(--panel);border:1px solid var(--line);border-radius:19px;padding:17px;margin:0 0 13px}.card h2,.card h3{margin:0 0 9px}.sub{color:var(--muted);font-size:.92rem}.notice{border-left:4px solid var(--warn);background:#2c281b;padding:13px 14px;border-radius:9px;margin:12px 0}.dangerbox{border-left:4px solid var(--danger);background:#301c29;padding:13px 14px;border-radius:9px;margin:12px 0}.successbox{border-left:4px solid var(--accent);background:#162c2a;padding:13px 14px;border-radius:9px;margin:12px 0}.dayhead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.badge{display:inline-block;background:#263651;color:var(--accent2);border-radius:99px;padding:4px 9px;font-size:.76rem;font-weight:800}.exercise{padding:13px 0;border-bottom:1px solid var(--line)}.exercise:last-child{border-bottom:0}.exercise h3{font-size:1rem;margin:0}.exercise p{margin:5px 0;color:var(--muted);font-size:.9rem}.exercise .dose{color:var(--accent);font-weight:800}.checkrow{display:flex;align-items:flex-start;gap:10px;margin:12px 0;padding:10px;background:#0e1728;border-radius:11px}.checkrow input{width:20px;height:20px;margin-top:3px;accent-color:#8bffbd}.btnrow{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}.progress{height:9px;background:#0a1120;border-radius:99px;overflow:hidden;margin:10px 0}.progress div{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:width .25s}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:5px;margin:10px 0}.field label{font-weight:700;font-size:.9rem}.field input,.field select,.field textarea{width:100%;padding:11px;border-radius:10px;border:1px solid var(--line);background:#0e1728;color:var(--text)}.field textarea{min-height:95px}.small{font-size:.82rem;color:var(--muted)}.historyitem{border-bottom:1px solid var(--line);padding:10px 0}.historyitem:last-child{border-bottom:0}.footer{text-align:center;color:var(--muted);font-size:.78rem;padding:20px}.hidden{display:none!important}.pill{display:inline-block;border:1px solid var(--line);padding:4px 8px;border-radius:8px;margin:3px;font-size:.78rem;color:var(--muted)}@media(max-width:580px){.stats{grid-template-columns:repeat(3,1fr)}.stat{padding:9px}.stat strong{font-size:1.2rem}.grid2{grid-template-columns:1fr}.wrap{padding:12px 10px 30px}.card{padding:14px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+ <div class="eyebrow">YOUR BODYWEIGHT TRAINING RPG</div>
+ <h1>BACKFLIP<br>QUEST <span style="color:var(--accent)">🔥</span></h1>
+ <p>ゼロから基礎を積み上げて、いつか安全にバク宙へ。今日の小さな達成を記録しよう。</p>
+ <div class="stats">
+  <div class="stat"><strong id="streak">0日</strong><span>連続記録</span></div>
+  <div class="stat"><strong id="total">0日</strong><span>トレーニング日数</span></div>
+  <div class="stat"><strong id="xp">0 XP</strong><span>累計XP</span></div>
+ </div>
+</header>
+<nav class="tabs">
+ <button class="tab active" data-page="today">今日のメニュー</button>
+ <button class="tab" data-page="history">記録・連続日数</button>
+ <button class="tab" data-page="backup">バックアップ</button>
+ <button class="tab" data-page="settings">設定・メニュー読込</button>
+</nav>
+<main>
+<section class="page active" id="page-today">
+ <div class="card">
+  <div class="dayhead"><div><span class="badge" id="dayBadge">DAY 1</span><h2 id="todayTitle" style="margin-top:8px">今日のトレーニング</h2><div class="sub" id="dateLabel"></div></div><span class="badge" id="typeBadge">基礎づくり</span></div>
+  <div class="progress"><div id="progressbar"></div></div><div class="small" id="progressText">0 / 0 完了</div>
+  <div id="safetyNotice" class="notice"><b>安全ルール：</b>家では筋力・柔軟性・基本動作だけ。後ろ向きジャンプ、頭や首に体重をかける動き、自己流の回転練習はしない。バク宙は設備と指導者の補助がある場所で学ぼう。</div>
+  <div id="workoutList"></div>
+  <div class="field"><label for="difficulty">今日のきつさ</label><select id="difficulty"><option value="easy">余裕だった</option><option value="right" selected>ちょうどよかった</option><option value="hard">きつかった</option><option value="pain">痛み・違和感があった</option></select></div>
+  <div class="field"><label for="notes">メモ（任意）</label><textarea id="notes" placeholder="例：ジャンプの着地が静かにできた"></textarea></div>
+  <div class="btnrow"><button id="finishBtn">今日の記録を保存 ✓</button><button class="secondary" id="extraBtn">おかわりメニューを見る ＋</button></div>
+  <p class="small" id="saveHint">チェックを入れて保存すると、端末のブラウザに記録されるよ。</p>
+ </div>
+ <div class="card hidden" id="extraCard"><h2>🌟 おかわりメニュー</h2><p class="sub">「余裕だった」日にだけ。これは追加の軽い練習で、疲労や痛みがある日はスキップしよう。バク宙の回転練習ではありません。</p><div id="extraList"></div><div class="checkrow"><input type="checkbox" id="extraDone"><label for="extraDone">おかわりを無理なく完了した</label></div><button id="saveExtra" class="secondary">おかわりを記録</button></div>
+ <div class="card"><h2>🗓️ 週7で続けたい君へ</h2><p>毎日アプリを開いてOK。でも、<b>毎日ハードな運動をする必要はない</b>よ。筋トレ日は週3〜4日、ほかの日は軽いストレッチや休養日にする設計。休養日も「継続」に含められるから、連続記録のために無理しなくて大丈夫。</p><div class="pill">筋力</div><div class="pill">ジャンプ基礎</div><div class="pill">柔軟性</div><div class="pill">回復日</div></div>
+</section>
+<section class="page" id="page-history">
+ <div class="card"><h2>📈 トレーニング履歴</h2><p class="sub">完了した日・休養日を記録。休養も計画の一部だよ。</p><div id="historyList"></div><div class="btnrow"><button class="secondary" id="clearHistoryBtn">履歴を消去</button></div></div>
+</section>
+<section class="page" id="page-backup">
+ <div class="card"><h2>💾 データのバックアップ</h2><p>記録はこの端末のブラウザ内（localStorage）に保存されるよ。ブラウザのデータ削除や端末変更に備えて、定期的にJSONを保存してね。</p><div class="btnrow"><button id="exportBtn">JSONを書き出す ↓</button><button class="secondary" id="exportMenuBtn">メニューだけ書き出す</button></div><div class="field"><label for="importFile">JSONバックアップを読み込む</label><input type="file" id="importFile" accept=".json,application/json"></div><div class="notice">読み込みは現在のデータを置き換えるよ。必要なら先にバックアップを取ってね。</div><div id="backupStatus" class="small"></div></div>
+</section>
+<section class="page" id="page-settings">
+ <div class="card"><h2>⚙️ 設定</h2><div class="grid2"><div class="field"><label for="startDate">開始日</label><input id="startDate" type="date"></div><div class="field"><label for="goal">目標</label><select id="goal"><option>バク宙の基礎づくり</option><option>筋力とジャンプ力を伸ばす</option><option>運動習慣をつくる</option></select></div></div><div class="field"><label for="profile">自分用メモ（任意）</label><textarea id="profile" placeholder="目標や気をつけたいこと"></textarea></div><button id="saveSettings">設定を保存</button></div>
+ <div class="card"><h2>📥 チャッピー作成メニューを読み込む</h2><p>このアプリは、あとで作ったトレーニングメニューJSONを読み込んで、今日のメニューに反映できるよ。読み込んだメニューは「メニューだけ書き出す」で保存可能。</p><div class="field"><label for="menuFile">メニューJSONファイル</label><input type="file" id="menuFile" accept=".json,application/json"></div><div class="field"><label for="menuText">またはJSONを貼り付け</label><textarea id="menuText" placeholder='{"app":"BACKFLIP_QUEST_MENU","version":1,"title":"新メニュー","days":[...]}'></textarea></div><button id="loadMenuBtn">メニューを読み込む</button><div id="menuStatus" class="small"></div></div>
+ <div class="card"><h2>🛡️ 安全について</h2><div class="dangerbox"><b>このアプリはバク宙を自宅で練習する手順を提供しません。</b>頭・首・背骨の重大なけがを防ぐため、回転技は適切なマット等の設備と、バク宙を指導できる専門指導者の補助のもとで練習してね。ベッド・ソファ・一人での挑戦は避けよう。</div><p class="small">痛み、めまい、胸痛、息苦しさが出たら中止。既往症や腰痛がある場合は、保護者や医療専門家に相談してから運動しよう。</p></div>
+</section>
+</main>
+<div class="footer">BACKFLIP QUEST • 端末内保存 • データは自動送信されません</div>
+</div>
+<script>
+const KEY='backflipQuestDataV1';
+const todayISO=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
+const shiftDate=(iso,n)=>{const d=new Date(iso+'T12:00:00');d.setDate(d.getDate()+n);return todayFromDate(d)};
+const todayFromDate=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const defaultMenu={
+ app:'BACKFLIP_QUEST_MENU',version:1,title:'バク宙の基礎づくり',days:[
+ {name:'筋力A',type:'筋力の日',items:[['ウォームアップ','その場でゆっくり足踏み','2分'],['スクワット','痛みのない範囲で、膝とつま先の向きをそろえる','10回×2セット'],['腕立て伏せ','きつければ壁や高い台に手をつく','余裕を2回残して×2セット'],['プランク','腰を反らさず、呼吸を止めない','15〜25秒×2セット'],['クールダウン','楽な範囲で呼吸を整える','2分']]},
+ {name:'ジャンプ基礎',type:'軽いパワーの日',items:[['ウォームアップ','足踏みと足首回し','3分'],['垂直ジャンプ','真上に跳び、静かに着地。低い回数で質を優先','3回×3セット'],['カーフレイズ','壁に手を添えてゆっくり上げ下げ','12回×2セット'],['クールダウン','ふくらはぎを軽く伸ばす','3分']]},
+ {name:'回復・柔軟性',type:'軽い日',items:[['ゆっくり歩く／足踏み','息が弾まない程度','3〜5分'],['ふくらはぎのストレッチ','反動をつけず、痛みのない範囲','左右20秒'],['太もも裏のストレッチ','背中を丸めすぎず、無理に引っ張らない','左右20秒'],['肩・股関節を動かす','小さくゆっくり動かす','2分']]},
+ {name:'筋力B',type:'筋力の日',items:[['ウォームアップ','その場で足踏み','2分'],['椅子スクワット','安定した椅子に軽く触れる程度','8〜10回×2セット'],['壁腕立て伏せ','体を一直線に保ち、楽にできる強度','8回×2セット'],['デッドバグ','仰向けで腰が反らない範囲で手足を動かす','左右6回×2セット'],['クールダウン','呼吸を整える','2分']]},
+ {name:'回復・柔軟性',type:'軽い日',items:[['ゆっくり歩く／足踏み','疲労があれば完全休養でもOK','3〜5分'],['足首・股関節のやさしい可動域運動','痛みのない範囲でゆっくり','3分'],['深呼吸','肩の力を抜いて落ち着く','1分']]},
+ {name:'筋力C',type:'筋力の日',items:[['ウォームアップ','足踏み','2分'],['スクワット','余裕を残して、丁寧に','10回×2セット'],['カーフレイズ','支えの近くで行う','12回×2セット'],['プランク','腰が痛ければ中止','15〜25秒×2セット'],['クールダウン','軽く歩いて呼吸を整える','2分']]},
+ {name:'休養日',type:'回復の日',items:[['休養','疲れが残っていたらトレーニングは休み。軽く体を動かすだけでもOK','任意：散歩5〜10分'],['ふりかえり','体調・疲れ・痛みを確認する','1分']]}
+ ],
+ extras:[['フォーム確認','スクワットをゆっくり丁寧に行う','5回'],['体幹の追加','プランク。フォームが崩れる前に終了','10秒×1セット'],['やさしい柔軟性','ふくらはぎや股関節を痛くない範囲で伸ばす','左右15秒']]
+};
+let data;
+function fresh(){return {schema:'BACKFLIP_QUEST_BACKUP',version:1,createdAt:new Date().toISOString(),settings:{startDate:todayISO(),goal:'バク宙の基礎づくり',profile:''},menu:defaultMenu,records:{}}}
+function loadData(){try{const raw=localStorage.getItem(KEY);if(raw){const d=JSON.parse(raw);if(d&&d.records&&d.menu)return d}}catch(e){}return fresh()}
+data=loadData();
+function persist(){localStorage.setItem(KEY,JSON.stringify(data));renderStats()}
+function dayDiff(a,b){return Math.floor((new Date(b+'T12:00:00')-new Date(a+'T12:00:00'))/86400000)}
+function planDay(date){let start=data.settings.startDate||todayISO();let n=Math.max(0,dayDiff(start,date));return data.menu.days[n%data.menu.days.length]}
+function isCompleted(r){return r&&(r.status==='done'||r.status==='rest')}
+function streakCount(){let d=todayISO(),count=0;while(data.records[d]&&isCompleted(data.records[d])){count++;d=shiftDate(d,-1)}return count}
+function totalDays(){return Object.values(data.records).filter(isCompleted).length}
+function totalXP(){return Object.values(data.records).reduce((s,r)=>s+(isCompleted(r)?(r.extra?15:10):0),0)}
+function renderStats(){document.getElementById('streak').textContent=streakCount()+'日';document.getElementById('total').textContent=totalDays()+'日';document.getElementById('xp').textContent=totalXP()+' XP'}
+function safeText(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function renderToday(){const date=todayISO(),plan=planDay(date),record=data.records[date];document.getElementById('dateLabel').textContent=new Date(date+'T12:00:00').toLocaleDateString('ja-JP',{year:'numeric',month:'long',day:'numeric',weekday:'long'});document.getElementById('dayBadge').textContent='DAY '+(Math.max(0,dayDiff(data.settings.startDate||date,date))+1);document.getElementById('todayTitle').textContent=plan.name;document.getElementById('typeBadge').textContent=plan.type||'基礎づくり';const list=document.getElementById('workoutList');list.innerHTML='';const checks=(record&&record.checks)||[];plan.items.forEach((it,i)=>{const div=document.createElement('div');div.className='exercise';div.innerHTML=`<label class="checkrow"><input type="checkbox" class="itemcheck" data-i="${i}" ${checks[i]?'checked':''}><span><h3>${safeText(it[0])}</h3><p>${safeText(it[1])}</p><span class="dose">${safeText(it[2])}</span></span></label>`;list.appendChild(div)});const checked=checks.filter(Boolean).length;document.getElementById('progressbar').style.width=(plan.items.length?checked/plan.items.length*100:0)+'%';document.getElementById('progressText').textContent=`${checked} / ${plan.items.length} 完了`;document.getElementById('difficulty').value=record?.difficulty||'right';document.getElementById('notes').value=record?.notes||'';document.getElementById('finishBtn').textContent=record&&isCompleted(record)?'今日の記録を更新 ✓':'今日の記録を保存 ✓';document.getElementById('saveHint').textContent=record&&isCompleted(record)?'今日は記録済み。更新しても連続日数は重複しないよ。':'チェックが途中でも保存OK。痛みがある場合は運動をやめて、記録では「痛み・違和感」を選ぼう。';renderExtra();renderStats()}
+function renderExtra(){let e=data.menu.extras||defaultMenu.extras;document.getElementById('extraList').innerHTML=e.map((it,i)=>`<div class="exercise"><h3>${safeText(it[0])}</h3><p>${safeText(it[1])}</p><span class="dose">${safeText(it[2])}</span></div>`).join('');document.getElementById('extraCard').classList.toggle('hidden',!document.getElementById('extraCard').dataset.open)}
+function showPage(name){document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.page===name));document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id==='page-'+name));if(name==='history')renderHistory();if(name==='settings')loadSettingsUI()}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
+document.getElementById('workoutList').addEventListener('change',()=>{const plan=planDay(todayISO());const checks=[...document.querySelectorAll('.itemcheck')].map(x=>x.checked);document.getElementById('progressbar').style.width=(checks.filter(Boolean).length/plan.items.length*100)+'%';document.getElementById('progressText').textContent=`${checks.filter(Boolean).length} / ${plan.items.length} 完了`});
+document.getElementById('finishBtn').addEventListener('click',()=>{const date=todayISO(),plan=planDay(date),checks=[...document.querySelectorAll('.itemcheck')].map(x=>x.checked),difficulty=document.getElementById('difficulty').value;let status='done';if(difficulty==='pain'){status='paused'}else if(plan.name.includes('休養')){status='rest'}data.records[date]={date,planName:plan.name,type:plan.type,checks,difficulty,notes:document.getElementById('notes').value,status,extra:data.records[date]?.extra||false,updatedAt:new Date().toISOString()};persist();renderToday();renderHistory();alert(status==='paused'?'記録したよ。痛みがあるなら運動は中止して、必要に応じて保護者や医療専門家に相談してね。': '今日の記録を保存したよ！');});
+document.getElementById('extraBtn').addEventListener('click',()=>{const card=document.getElementById('extraCard');card.dataset.open=card.dataset.open==='true'?'false':'true';renderExtra();card.scrollIntoView({behavior:'smooth',block:'start'})});
+document.getElementById('saveExtra').addEventListener('click',()=>{if(!document.getElementById('extraDone').checked){alert('完了チェックを入れてね。きつい日はおかわりしなくてOK！');return}const d=todayISO();if(!data.records[d])data.records[d]={date:d,planName:planDay(d).name,type:planDay(d).type,checks:[],difficulty:document.getElementById('difficulty').value,notes:'',status:'done',extra:false};data.records[d].extra=true;persist();alert('おかわりを記録したよ！ 無理なくできた分だけで十分。');document.getElementById('extraDone').checked=false;});
+function renderHistory(){const box=document.getElementById('historyList');const entries=Object.keys(data.records).sort((a,b)=>b.localeCompare(a));if(!entries.length){box.innerHTML='<p class="sub">まだ記録がないよ。今日のメニューから始めよう！</p>';return}box.innerHTML=entries.map(d=>{const r=data.records[d];const label=r.status==='paused'?'痛み・中止':r.status==='rest'?'休養日':isCompleted(r)?'完了':'未完了';return `<div class="historyitem"><b>${safeText(d)} · ${safeText(r.planName||'トレーニング')}</b><span class="badge" style="float:right">${label}</span><div class="small">${safeText(r.difficulty==='easy'?'余裕だった':r.difficulty==='hard'?'きつかった':r.difficulty==='pain'?'痛み・違和感':'ちょうどよかった')}${r.extra?' · おかわり＋':''}${r.notes?' · '+safeText(r.notes):''}</div></div>`}).join('')}
+document.getElementById('clearHistoryBtn').addEventListener('click',()=>{if(confirm('履歴をすべて削除する？先にバックアップするのがおすすめだよ。')){data.records={};persist();renderHistory();renderToday()}});
+function download(name,obj){const blob=new Blob([JSON.stringify(obj,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url)}
+document.getElementById('exportBtn').addEventListener('click',()=>download('backflip-quest-backup-'+todayISO()+'.json',data));
+document.getElementById('exportMenuBtn').addEventListener('click',()=>download('backflip-quest-menu.json',data.menu));
+document.getElementById('importFile').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{const obj=JSON.parse(await f.text());if(!obj||!obj.records||!obj.menu||!obj.settings)throw Error('バックアップ形式が違うよ');if(!confirm('現在の記録と設定を、読み込んだ内容に置き換える？'))return;data=obj;persist();renderToday();renderHistory();document.getElementById('backupStatus').textContent='バックアップを読み込んだよ！';alert('読み込み完了！')}catch(err){document.getElementById('backupStatus').textContent='読み込めなかったよ。正しいバックアップJSONか確認してね。'}e.target.value=''});
+function validMenu(m){return m&&Array.isArray(m.days)&&m.days.length>0&&m.days.every(d=>d&&Array.isArray(d.items)&&d.items.every(it=>Array.isArray(it)&&it.length>=3))&&(!m.extras||Array.isArray(m.extras))}
+async function readMenuFile(file){if(!file)return;try{const m=JSON.parse(await file.text());applyMenu(m)}catch(e){document.getElementById('menuStatus').textContent='JSONを読み込めなかったよ。形式を確認してね。'}}
+function applyMenu(m){if(!validMenu(m)){document.getElementById('menuStatus').textContent='メニュー形式が違うよ。days と items（名前・説明・量）が必要です。';return}data.menu={app:'BACKFLIP_QUEST_MENU',version:1,title:m.title||'カスタムメニュー',days:m.days,extras:m.extras||defaultMenu.extras};persist();renderToday();document.getElementById('menuStatus').textContent='メニューを読み込んだよ！ 今日から新しいメニューが表示されるよ。';}
+document.getElementById('menuFile').addEventListener('change',e=>readMenuFile(e.target.files[0]));
+document.getElementById('loadMenuBtn').addEventListener('click',()=>{try{applyMenu(JSON.parse(document.getElementById('menuText').value))}catch(e){document.getElementById('menuStatus').textContent='JSONを貼り付けてから押してね。'}});
+function loadSettingsUI(){document.getElementById('startDate').value=data.settings.startDate||todayISO();document.getElementById('goal').value=data.settings.goal||'バク宙の基礎づくり';document.getElementById('profile').value=data.settings.profile||''}
+document.getElementById('saveSettings').addEventListener('click',()=>{data.settings.startDate=document.getElementById('startDate').value||todayISO();data.settings.goal=document.getElementById('goal').value;data.settings.profile=document.getElementById('profile').value;persist();renderToday();alert('設定を保存したよ！')});
+renderToday();renderHistory();renderStats();
+</script>
+</body>
+</html>
